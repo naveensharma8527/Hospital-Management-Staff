@@ -20,7 +20,7 @@
 - Patient Module
 
 ## ER Diagram
-
+![AstroTalk ER](https://github.com/naveensharma8527/Hospital-Management-Staff/assets/101116044/70e2465c-0b3a-4b39-81e8-05580afa81aa)
 
 ## Installation & Run
 
