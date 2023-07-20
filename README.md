@@ -41,4 +41,18 @@
 https://localhost:8080/
 ```
 
+## Features
 
+- The system includes authentication and validation for Hospital Staff .
+- Add new Patient.
+```
+https://localhost:8080/patient
+```
+- View All Patients.
+```
+https://localhost:8080/patients
+```
+- Update Patient Status To Discharge.
+```
+https://localhost:8080/patient/{pid}
+```
