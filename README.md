@@ -44,6 +44,10 @@ https://localhost:8080/
 ## Features
 
 - The system includes authentication and validation for Hospital Staff .
+- Register as Hospital Staff .
+```
+https://localhost:8080/staff
+```
 - LogIn as Hospital Staff .
 ```
 https://localhost:8080/signIn
