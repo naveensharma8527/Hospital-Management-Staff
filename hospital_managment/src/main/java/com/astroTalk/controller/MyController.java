@@ -26,20 +26,19 @@ public class MyController {
     }
 
 
-    @PostMapping("/hello")
-    public ResponseEntity<String> sayHello( ){
 
-
-
-        return new ResponseEntity<String>("Hello bro", HttpStatus.OK);
-
-    }
 
 
     @GetMapping("/patients")
-    public ResponseEntity<List<Patient>> addPhoneNum(@PathVariable String pn){
+    public ResponseEntity<List<Patient>> getAllPatient(){
         List<Patient> patients = patientService.getAllPatient();
         return new ResponseEntity<List<Patient>>(patients,HttpStatus.OK);
+    }
+
+    @PatchMapping("/patient/{pid}")
+    public ResponseEntity<String>updatePatientStatus(@PathVariable Integer pid ){
+        String res = patientService.changePatientStatus(pid);
+        return new ResponseEntity<String>(res,HttpStatus.OK);
     }
 
 
