@@ -16,9 +16,9 @@ public class AppConfig {
 
     @Bean
     public SecurityFilterChain springSecurityConfiguration(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(auth ->{
+        http.authorizeHttpRequests(auth -> {
                     auth
-                            .requestMatchers(HttpMethod.POST,"/staff").permitAll()
+                            .requestMatchers(HttpMethod.POST, "/staff").permitAll()
 
                             .anyRequest().authenticated();
                 }).addFilterBefore(new JwtTokenValidatorFilter(), BasicAuthenticationFilter.class)

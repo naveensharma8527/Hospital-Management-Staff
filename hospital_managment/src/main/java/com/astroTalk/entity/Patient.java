@@ -30,6 +30,4 @@ public class Patient {
     private PatientStatus status;
 
 
-
-
 }

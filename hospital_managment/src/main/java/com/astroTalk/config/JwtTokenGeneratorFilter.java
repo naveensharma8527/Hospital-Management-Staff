@@ -25,7 +25,6 @@ public class JwtTokenGeneratorFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        System.out.println("inside doFilter....");
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (null != authentication) {
@@ -38,11 +37,10 @@ public class JwtTokenGeneratorFilter extends OncePerRequestFilter {
                     .claim("username", authentication.getName())
                     .claim("authorities", populateAuthorities(authentication.getAuthorities()))
                     .setIssuedAt(new Date())
-                    .setExpiration(new Date(new Date().getTime()+ 30000000)) // expiration time of 8 hours
+                    .setExpiration(new Date(new Date().getTime() + 30000000)) // expiration time of 8 hours
                     .signWith(key).compact();
 
             response.setHeader(SecurityConstants.JWT_HEADER, jwt);
-
 
 
         }
@@ -50,10 +48,7 @@ public class JwtTokenGeneratorFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
 
 
-
     }
-
-
 
 
     private String populateAuthorities(Collection<? extends GrantedAuthority> collection) {
@@ -67,8 +62,6 @@ public class JwtTokenGeneratorFilter extends OncePerRequestFilter {
 
 
     }
-
-
 
 
     //this make sure that this filter will execute only for first time when client call the api /login at first time

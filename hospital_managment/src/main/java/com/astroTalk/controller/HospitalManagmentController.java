@@ -2,7 +2,6 @@ package com.astroTalk.controller;
 
 import com.astroTalk.entity.Patient;
 import com.astroTalk.entity.StaffMember;
-import com.astroTalk.repository.StaffMemberRepository;
 import com.astroTalk.service.PatientService;
 import com.astroTalk.service.StaffMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class MyController {
+public class HospitalManagmentController {
 
     @Autowired
     PatientService patientService;

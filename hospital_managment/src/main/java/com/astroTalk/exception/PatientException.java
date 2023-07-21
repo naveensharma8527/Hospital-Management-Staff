@@ -1,6 +1,6 @@
 package com.astroTalk.exception;
 
-public class PatientException extends RuntimeException{
+public class PatientException extends RuntimeException {
 
     public PatientException() {
 

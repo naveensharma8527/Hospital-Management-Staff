@@ -13,14 +13,14 @@ import java.time.LocalDateTime;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(PatientException.class)
-    public ResponseEntity<MyErrorDetails> myCustomerExceptionHandler(PatientException patientException, WebRequest req){
+    public ResponseEntity<ErrorDetails> myCustomerExceptionHandler(PatientException patientException, WebRequest req){
 
-        MyErrorDetails err = new MyErrorDetails();
+        ErrorDetails err = new ErrorDetails();
         err.setTimestamp(LocalDateTime.now());
         err.setMessage(patientException.getMessage());
         err.setDetails(req.getDescription(false));
 
-        return new ResponseEntity<MyErrorDetails>(err, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<ErrorDetails>(err, HttpStatus.BAD_REQUEST);
 
     }
 }
