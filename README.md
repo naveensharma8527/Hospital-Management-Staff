@@ -38,7 +38,7 @@
 ## API Root Endpoint
 
 ```
-https://localhost:8080/
+http://localhost:8080/
 ```
 
 ## Features
@@ -46,21 +46,21 @@ https://localhost:8080/
 - The system includes authentication and validation for Hospital Staff .
 - Register as Hospital Staff .
 ```
-https://localhost:8080/staff
+http://localhost:8080/staff
 ```
 - LogIn as Hospital Staff .
 ```
-https://localhost:8080/signIn
+http://localhost:8080/signIn
 ```
 - Add new Patient.
 ```
-https://localhost:8080/patient
+http://localhost:8080/patient
 ```
 - View All Patients.
 ```
-https://localhost:8080/patients
+http://localhost:8080/patients
 ```
 - Update Patient Status To Discharge.
 ```
-https://localhost:8080/patient/{pid}
+http://localhost:8080/patient/{pid}
 ```
