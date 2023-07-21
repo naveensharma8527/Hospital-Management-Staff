@@ -29,6 +29,7 @@ public class StaffMemberUserDetailsService implements UserDetailsService{
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
+        System.out.println(username);
 
         Optional<StaffMember> opt= staffMemberRepository.findByUsername(username);
 
@@ -40,7 +41,7 @@ public class StaffMemberUserDetailsService implements UserDetailsService{
             //authorities.add(new SimpleGrantedAuthority(customer.getRole()));
 
 
-            return new User(staffMember.getUsername(), passwordEncoder.encode(staffMember.getPassword()) , authorities);
+            return new User(staffMember.getUsername(), staffMember.getPassword() , authorities);
 
 
 
