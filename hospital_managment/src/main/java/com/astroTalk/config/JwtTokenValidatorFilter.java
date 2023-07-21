@@ -20,32 +20,22 @@ import java.io.IOException;
 import java.util.List;
 
 public class JwtTokenValidatorFilter extends OncePerRequestFilter {
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-
         String jwt= request.getHeader(SecurityConstants.JWT_HEADER);
 
-
         if(jwt != null) {
-
             try {
-
                 //extracting the word Bearer
                 jwt = jwt.substring(7);
 
-
                 SecretKey key= Keys.hmacShaKeyFor(SecurityConstants.JWT_KEY.getBytes());
-
-
 
                 Claims claims= Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
 
-
                 String username= String.valueOf(claims.get("username"));
-
 
                 String authorities= (String)claims.get("authorities");
 
@@ -56,21 +46,14 @@ public class JwtTokenValidatorFilter extends OncePerRequestFilter {
 
 //				List<GrantedAuthority> authorities=(List<GrantedAuthority>)claims.get("authorities");
 //				Authentication auth = new UsernamePasswordAuthenticationToken(username, null, authorities);
-
-
                 SecurityContextHolder.getContext().setAuthentication(auth);
 
             } catch (Exception e) {
                 throw new BadCredentialsException("Invalid Token received..");
             }
 
-
-
         }
-
         filterChain.doFilter(request, response);
-
-
     }
 
 
@@ -82,6 +65,5 @@ public class JwtTokenValidatorFilter extends OncePerRequestFilter {
 
         return request.getServletPath().equals("/signIn");
     }
-
 }
 

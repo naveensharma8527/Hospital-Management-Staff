@@ -20,15 +20,12 @@ import java.util.Set;
 
 
 public class JwtTokenGeneratorFilter extends OncePerRequestFilter {
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (null != authentication) {
-
             SecretKey key = Keys.hmacShaKeyFor(SecurityConstants.JWT_KEY.getBytes());
 
             String jwt = Jwts.builder()
@@ -42,24 +39,18 @@ public class JwtTokenGeneratorFilter extends OncePerRequestFilter {
 
             response.setHeader(SecurityConstants.JWT_HEADER, jwt);
 
-
         }
-
         filterChain.doFilter(request, response);
-
-
     }
 
 
     private String populateAuthorities(Collection<? extends GrantedAuthority> collection) {
-
         Set<String> authoritiesSet = new HashSet<>();
 
         for (GrantedAuthority authority : collection) {
             authoritiesSet.add(authority.getAuthority());
         }
         return String.join(",", authoritiesSet);
-
 
     }
 
@@ -70,6 +61,5 @@ public class JwtTokenGeneratorFilter extends OncePerRequestFilter {
 
         return !request.getServletPath().equals("/signIn");
     }
-
 
 }

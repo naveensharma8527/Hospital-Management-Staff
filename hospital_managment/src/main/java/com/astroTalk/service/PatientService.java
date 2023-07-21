@@ -13,5 +13,4 @@ public interface PatientService {
     public List<Patient> getAllPatient() throws PatientException;
 
     public String changePatientStatus(Integer patientId) throws PatientException;
-
 }

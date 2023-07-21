@@ -21,9 +21,6 @@ public class HospitalManagmentController {
     @Autowired
     StaffMemberService staffMemberService;
 
-
-
-
     @PostMapping("/patient")
     public ResponseEntity<Patient> registerPatient(@RequestBody Patient patient){
 

@@ -13,7 +13,6 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 
 @Configuration
 public class AppConfig {
-
     @Bean
     public SecurityFilterChain springSecurityConfiguration(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(auth -> {
@@ -28,12 +27,9 @@ public class AppConfig {
                 .httpBasic(Customizer.withDefaults());
         return http.build();
     }
-
     @Bean
     public PasswordEncoder passwordEncoder() {
 
         return new BCryptPasswordEncoder();
-
     }
-
 }
